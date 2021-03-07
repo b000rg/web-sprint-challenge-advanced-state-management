@@ -1,12 +1,29 @@
-import React from 'react';
+import React from "react";
+import Card from "react-bootstrap/Card";
 
 class Smurf extends React.Component {
-    render() {
-        const { smurf } = this.props;
+  constructor(props) {
+    super();
+    this.props = props;
+  }
 
-        return(<div data-testid="smurf" className="card">
-        </div>);
-    }
+  render() {
+    const { smurf } = this.props;
+
+    return (
+      <Card data-testid="smurf">
+        <Card.Body>
+          <Card.Title>
+            '{smurf.nickname}' - {smurf.name}
+          </Card.Title>
+          <Card.Subtitle className="mb-2 text-muted">
+            {smurf.position}
+          </Card.Subtitle>
+          <Card.Body>{smurf.description}</Card.Body>
+        </Card.Body>
+      </Card>
+    );
+  }
 }
 
 export default Smurf;
